@@ -1,0 +1,34 @@
+{
+  "name": "lerd",
+  "description": "Claude Code plugins that come with lerd",
+  "owner": {
+    "name": "Lerd",
+    "url": "https://lerd.sh"
+  },
+  "plugins": [
+    {
+      "name": "lerd-php",
+      "description": "PHP code intelligence for Claude Code from the language server lerd already ships",
+      "version": "1.0.0",
+      "author": {
+        "name": "Lerd",
+        "url": "https://lerd.sh"
+      },
+      "homepage": "https://lerd.sh/features/mcp/",
+      "source": "./plugins/lerd-php",
+      "category": "development",
+      "strict": false,
+      "lspServers": {
+        "lerd-php": {
+          "command": "lerd",
+          "args": [
+            "lsp"
+          ],
+          "extensionToLanguage": {
+            ".php": "php"
+          }
+        }
+      }
+    }
+  ]
+}
