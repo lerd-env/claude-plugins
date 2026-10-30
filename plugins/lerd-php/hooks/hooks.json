@@ -1,0 +1,18 @@
+{
+  "description": "Reminds Claude to ask the PHP language server before grepping a PHP project.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Grep",
+        "hooks": [{ "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/lsp-reminder.sh\"", "timeout": 5 }]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/lsp-reminder.sh\"", "if": "Bash(grep *)", "timeout": 5 },
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/lsp-reminder.sh\"", "if": "Bash(rg *)", "timeout": 5 }
+        ]
+      }
+    ]
+  }
+}
